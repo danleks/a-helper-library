@@ -1,4 +1,4 @@
-#A helper library
+# A helper library
 
 A helper library `handleDOM` with public methods:
 
