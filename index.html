@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Helper Library</title>
+
+	<style type="text/css">
+		body {
+			margin: 1em auto;
+			max-width: 40em;
+			width: 88%;
+		}
+
+		.btn-blue {
+			background-color: #0088cc;
+			color: #ffffff;
+		}
+
+		.btn-purple {
+			background-color: rebeccapurple;
+			color: #ffffff;
+		}
+	</style>
+</head>
+<body>
+
+	<h1>Helper Library</h1>
+
+	<p>All of the fun here happens in the console.</p>
+
+	<p>
+		<button class="btn-blue" id="button-1">Button 1</button>
+		<button class="btn-blue" id="button-2">Button 2</button>
+		<button class="btn-blue" id="button-3">Button 3</button>
+	</p>
+
+	<script>
+		const handleDOM = (() => {
+            // holds public methods
+            const methods = {};
+
+            /**
+            * Convert node list into array
+            * @param {NodeList} nodeList
+            * return {Array} nodelist converted into an array
+            */
+            methods.nodeListToArray = (nodeList) => {
+                return Array.from(nodeList);
+            };
+
+            /**
+             * Get the first matching element in the DOM
+             * @param {String} elem the element to match
+             * @return {Node} an elem from DOM
+             * 
+            */
+            methods.getFirstMatchingElemInDom = (elem) => {
+                return document.querySelector(elem);
+            };
+
+
+            /**
+             * Get all matching elements in the DOM as an array
+             * @param {String} elem to match all elements in the DOM
+             * @return {Array} a nodelist converted into an array with @methods.nodeListToArray() method
+            */
+            methods.getAllMatchingElemsInDomAsArr = (elem) => {
+                return methods.nodeListToArray(document.querySelectorAll(elem));
+            }
+
+            /**
+             * @param {String} elem to match all elements in the DOM
+             * @param {String} className to add to all the selected elements
+            */
+            methods.addClassToAllElems = (elem, className) => {
+                methods.getAllMatchingElemsInDomAsArr(elem).forEach(elem => {
+                    elem.classList.add(className);
+                });
+            }
+
+            /**
+             * @param {String} elem to mathc all elements in the DOM
+             * @param {String} className to remove from all the selected elements
+            */
+            methods.removeClassFromAllElems = (elem, className) => {
+                methods.getAllMatchingElemsInDomAsArr(elem).forEach(elem => {
+                    elem.classList.remove(className);
+                })
+            }
+
+            // return public methods
+            return methods;
+        })();
+	</script>
+</body>
+</html>
