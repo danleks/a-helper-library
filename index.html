@@ -38,6 +38,17 @@
             // holds public methods
             const methods = {};
 
+
+            /**
+             *  helper func
+             * @param {String} elem all the elements to match in the DOM
+             * @return {NodeList}
+             * 
+            */
+            const getNodeList = (elem) => {
+                return document.querySelectorAll(elem);
+            };
+
             /**
             * Convert node list into array
             * @param {NodeList} nodeList
@@ -64,10 +75,11 @@
              * @return {Array} a nodelist converted into an array with @methods.nodeListToArray() method
             */
             methods.getAllMatchingElemsInDomAsArr = (elem) => {
-                return methods.nodeListToArray(document.querySelectorAll(elem));
+                return methods.nodeListToArray(getNodeList(elem));
             }
 
             /**
+             * Add a class to all elements in an array.
              * @param {String} elem to match all elements in the DOM
              * @param {String} className to add to all the selected elements
             */
@@ -78,7 +90,8 @@
             }
 
             /**
-             * @param {String} elem to mathc all elements in the DOM
+             * Remove a class from all elements in an array.
+             * @param {String} elem to match all elements in the DOM
              * @param {String} className to remove from all the selected elements
             */
             methods.removeClassFromAllElems = (elem, className) => {
