@@ -3,10 +3,10 @@
 A helper library `handleDOM` with public methods:
 
 ```javascript
+nodeListToArray: function nodeListToArray(nodeList)
+getFirstMatchingElemInDom: function getFirstMatchingElemInDom(elem)
+getAllMatchingElemsInDomAsArr: function getAllMatchingElemsInDomAsArr(elem)
 addClassToAllElems: function addClassToAllElems(elem, className)
-getAllMatchingElemsInDomAsArr: function getAllMatchingElemsInDomAsArr(elem)​
-getFirstMatchingElemInDom: function getFirstMatchingElemInDom(elem)​
-nodeListToArray: function nodeListToArray(nodeList)​
 removeClassFromAllElems: function removeClassFromAllElems(elem, className)
 
 ```
